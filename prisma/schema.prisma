@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String   @db.VarChar(120)
+  email        String   @unique @db.VarChar(160)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  role         Role     @default(USER)
+  avatar       String?  @db.VarChar(500)
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  posts        Post[]   @relation("PostAuthor")
+  media        Media[]  @relation("UploadedMedia")
+
+  @@index([role])
+  @@index([active])
+  @@map("users")
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique @db.VarChar(120)
+  slug      String   @unique @db.VarChar(140)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  posts     Post[]
+
+  @@map("categories")
+}
+
+model Post {
+  id             String     @id @default(cuid())
+  title          String     @db.VarChar(220)
+  slug           String     @unique @db.VarChar(240)
+  content        String     @db.Text
+  excerpt        String     @db.VarChar(500)
+  thumbnail      String?    @db.VarChar(500)
+  status         PostStatus @default(DRAFT)
+  seoTitle       String?    @map("seo_title") @db.VarChar(220)
+  seoDescription String?    @map("seo_description") @db.VarChar(320)
+  authorId       String     @map("author_id")
+  categoryId     String     @map("category_id")
+  publishedAt    DateTime?  @map("published_at")
+  createdAt      DateTime   @default(now()) @map("created_at")
+  updatedAt      DateTime   @updatedAt @map("updated_at")
+
+  author         User       @relation("PostAuthor", fields: [authorId], references: [id])
+  category       Category   @relation(fields: [categoryId], references: [id])
+
+  @@index([status, publishedAt])
+  @@index([categoryId, status])
+  @@index([authorId, status])
+  @@index([slug])
+  @@map("posts")
+}
+
+model Media {
+  id         String   @id @default(cuid())
+  url        String   @db.VarChar(500)
+  key        String   @db.VarChar(500)
+  alt        String?  @db.VarChar(220)
+  uploadedBy String   @map("uploaded_by")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  uploader   User     @relation("UploadedMedia", fields: [uploadedBy], references: [id])
+
+  @@index([uploadedBy, createdAt])
+  @@map("media")
+}
+
+model Menu {
+  id        String   @id @default(cuid())
+  label     String   @db.VarChar(80)
+  path      String   @db.VarChar(240)
+  order     Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([order])
+  @@map("menus")
+}

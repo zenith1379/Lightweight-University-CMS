@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Video briefing">
+  <rect width="1200" height="700" fill="#10164f"/>
+  <rect x="120" y="96" width="960" height="508" rx="34" fill="#fff" opacity=".12"/>
+  <rect x="180" y="150" width="840" height="398" rx="24" fill="#2f3192"/>
+  <circle cx="600" cy="350" r="118" fill="#249ac6"/>
+  <path d="M568 288v124l106-62z" fill="#fff"/>
+  <rect x="234" y="590" width="732" height="24" rx="12" fill="#249ac6"/>
+  <circle cx="362" cy="602" r="28" fill="#fff"/>
+</svg>

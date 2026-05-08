@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="University campus">
+  <rect width="1200" height="700" fill="#f1f5f9"/>
+  <rect y="430" width="1200" height="270" fill="#dbeafe"/>
+  <path d="M0 435h1200v265H0z" fill="#e2e8f0"/>
+  <path d="M100 380h1000v70H100z" fill="#249ac6"/>
+  <path d="M170 210h860v170H170z" fill="#ffffff"/>
+  <path d="M235 260h90v120h-90zm160 0h90v120h-90zm160 0h90v120h-90zm160 0h90v120h-90zm160 0h90v120h-90z" fill="#bfdbfe"/>
+  <path d="M130 210h940L600 70z" fill="#2f3192"/>
+  <path d="M545 70h110v140H545z" fill="#2f3192"/>
+  <circle cx="600" cy="132" r="34" fill="#f8fafc"/>
+  <path d="M590 112h20v28h-20zM600 140l24 22h-48z" fill="#249ac6"/>
+  <path d="M0 560c145-44 263-44 354 0s213 44 366 0 313-44 480 0v140H0z" fill="#cbd5e1"/>
+  <circle cx="130" cy="165" r="54" fill="#fbbf24" opacity=".75"/>
+</svg>

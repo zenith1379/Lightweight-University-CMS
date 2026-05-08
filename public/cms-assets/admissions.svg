@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Admissions desk">
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <rect y="465" width="1200" height="235" fill="#e0f2fe"/>
+  <rect x="130" y="130" width="420" height="500" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="10"/>
+  <path d="M200 220h280v24H200zm0 70h280v24H200zm0 70h210v24H200z" fill="#64748b"/>
+  <rect x="200" y="455" width="220" height="58" rx="12" fill="#249ac6"/>
+  <path d="M690 170h250v360H690z" fill="#ffffff" stroke="#cbd5e1" stroke-width="10"/>
+  <path d="M735 225h160v34H735zm0 85h160v34H735zm0 85h160v34H735z" fill="#bfdbfe"/>
+  <path d="M615 545c95-70 194-105 297-105s191 35 267 105v155H615z" fill="#1e293b"/>
+  <circle cx="845" cy="316" r="74" fill="#fbbf24"/>
+  <path d="M805 315h80" stroke="#2f3192" stroke-width="18" stroke-linecap="round"/>
+  <path d="M845 275v80" stroke="#2f3192" stroke-width="18" stroke-linecap="round"/>
+</svg>

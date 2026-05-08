@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Graduate admission consulting session">
+  <rect width="1200" height="700" fill="#eef7ff"/>
+  <rect x="0" y="0" width="1200" height="700" fill="#2f3192" opacity=".08"/>
+  <rect x="96" y="92" width="430" height="516" rx="24" fill="#fff" stroke="#c8d7ee" stroke-width="8"/>
+  <rect x="148" y="158" width="326" height="42" rx="10" fill="#2f3192"/>
+  <rect x="148" y="232" width="286" height="28" rx="8" fill="#249ac6"/>
+  <rect x="148" y="286" width="326" height="28" rx="8" fill="#d8e1f2"/>
+  <rect x="148" y="340" width="250" height="28" rx="8" fill="#d8e1f2"/>
+  <rect x="148" y="430" width="170" height="64" rx="16" fill="#249ac6"/>
+  <circle cx="795" cy="330" r="196" fill="#2f3192"/>
+  <circle cx="795" cy="268" r="92" fill="#249ac6"/>
+  <path d="M586 556c40-112 122-172 209-172s169 60 209 172" fill="#12175f"/>
+  <rect x="702" y="124" width="260" height="54" rx="14" fill="#fff" opacity=".9"/>
+  <rect x="742" y="490" width="314" height="58" rx="16" fill="#249ac6"/>
+</svg>

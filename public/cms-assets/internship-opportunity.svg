@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Internship opportunity">
+  <rect width="1200" height="700" fill="#eef7ff"/>
+  <rect x="90" y="250" width="1020" height="330" rx="28" fill="#2f3192"/>
+  <rect x="172" y="184" width="240" height="120" rx="20" fill="#249ac6"/>
+  <rect x="224" y="138" width="136" height="84" rx="18" fill="#fff" stroke="#2f3192" stroke-width="16"/>
+  <rect x="500" y="150" width="520" height="70" rx="18" fill="#fff"/>
+  <rect x="544" y="174" width="270" height="22" rx="8" fill="#2f3192"/>
+  <rect x="174" y="338" width="220" height="120" rx="18" fill="#fff" opacity=".95"/>
+  <rect x="490" y="338" width="220" height="120" rx="18" fill="#fff" opacity=".95"/>
+  <rect x="806" y="338" width="220" height="120" rx="18" fill="#fff" opacity=".95"/>
+  <rect x="210" y="386" width="148" height="22" rx="8" fill="#249ac6"/>
+  <rect x="526" y="386" width="148" height="22" rx="8" fill="#249ac6"/>
+  <rect x="842" y="386" width="148" height="22" rx="8" fill="#249ac6"/>
+</svg>

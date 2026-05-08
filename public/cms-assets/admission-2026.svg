@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Admission information 2026">
+  <rect width="1200" height="700" fill="#f6fbff"/>
+  <path d="M0 510h1200v190H0z" fill="#d8e1f2"/>
+  <rect x="110" y="110" width="980" height="470" rx="28" fill="#fff" stroke="#c8d7ee" stroke-width="8"/>
+  <rect x="170" y="178" width="370" height="56" rx="12" fill="#2f3192"/>
+  <rect x="170" y="270" width="480" height="32" rx="9" fill="#249ac6"/>
+  <rect x="170" y="326" width="410" height="28" rx="9" fill="#d8e1f2"/>
+  <rect x="170" y="380" width="500" height="28" rx="9" fill="#d8e1f2"/>
+  <circle cx="885" cy="320" r="150" fill="#249ac6"/>
+  <path d="M790 330h190M885 235v190" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <rect x="735" y="492" width="300" height="44" rx="12" fill="#2f3192"/>
+</svg>

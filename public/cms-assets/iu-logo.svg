@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="International University logo">
+  <circle cx="256" cy="256" r="244" fill="#ffffff"/>
+  <circle cx="256" cy="256" r="238" fill="none" stroke="#2f3192" stroke-width="12"/>
+  <circle cx="256" cy="256" r="205" fill="none" stroke="#2f3192" stroke-width="7"/>
+  <path d="M256 438c-83 0-151-38-184-99-22-40-29-89-18-139h136v177h132V200h136c11 50 4 99-18 139-33 61-101 99-184 99z" fill="#2f3192"/>
+  <path d="M192 189c0-46 28-83 64-83s64 37 64 83-28 83-64 83-64-37-64-83z" fill="#249ac6"/>
+  <path d="M191 223c18 39 48 58 65 58s47-19 65-58v43c-19 30-45 44-65 44s-46-14-65-44z" fill="#ffffff"/>
+  <path d="M191 190v187h130V190h-32v155h-66V190z" fill="#249ac6"/>
+  <defs>
+    <path id="topArc" d="M96 268a160 160 0 0 1 320 0"/>
+    <path id="bottomArc" d="M416 281a160 160 0 0 1-320 0"/>
+  </defs>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800" fill="#2f3192" letter-spacing="2">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">INTERNATIONAL UNIVERSITY</textPath>
+  </text>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#2f3192" letter-spacing="3">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">HCM - IU</textPath>
+  </text>
+</svg>
