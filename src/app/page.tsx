@@ -26,27 +26,27 @@ export default async function Home({ searchParams }: Props) {
             slides={[
               {
                 src: "/cms-assets/postgraduate-admission.svg",
-                eyebrow: lang === "vi" ? "Tuyen sinh Sau dai hoc 2026" : "Graduate Admission 2026",
-                title: lang === "vi" ? "Tu van Thac si va Tien si Cong nghe Thong tin" : "Master and Doctor of IT consulting session",
-                body: lang === "vi" ? "Su kien dien ra luc 08:30, Thu Bay 16/05/2026 tai Phong A2.307, Truong Dai hoc Quoc te, co ho tro tham gia online." : "The session starts at 08:30 on Saturday, 16/05/2026 in Room A2.307, International University, with online support available.",
+                eyebrow: "Graduate Admission 2026",
+                title: "Master and Doctor of IT consulting session",
+                body: "The session starts at 08:30 on Saturday, 16/05/2026 in Room A2.307, International University, with online support available.",
               },
               {
                 src: "/cms-assets/admission-2026.svg",
-                eyebrow: lang === "vi" ? "Thong tin tuyen sinh 2026" : "Admission Information 2026",
-                title: lang === "vi" ? "Truong Dai hoc Quoc te tuyen 2.300 chi tieu" : "International University announces 2,300 admission quotas",
-                body: lang === "vi" ? "Noi dung demo duoc bien tap theo RSS cua website Khoa, gom tuyen sinh, hoc bong, chuong trinh dao tao va huong dan ho so." : "Demo content is adapted from the School RSS feed, covering admission, scholarships, programs, and application guidance.",
+                eyebrow: "Admission Information 2026",
+                title: "International University announces 2,300 admission quotas",
+                body: "Demo content is adapted from the School RSS feed, covering admission, scholarships, programs, and application guidance.",
               },
               {
                 src: "/cms-assets/video-briefing.svg",
-                eyebrow: lang === "vi" ? "Video va su kien" : "Video and Events",
-                title: lang === "vi" ? "Nhip cau du hoc va cac chuong trinh lien ket" : "Study-abroad briefing and partnership pathways",
-                body: lang === "vi" ? "Bai viet co the nhung video YouTube, hinh anh, link dang ky va thong tin dia diem nhu tren website goc." : "Posts can include YouTube video embeds, images, registration links, and location details like the reference website.",
+                eyebrow: "Video and Events",
+                title: "Study-abroad briefing and partnership pathways",
+                body: "Posts can include YouTube video embeds, images, registration links, and location details like the reference website.",
               },
               {
                 src: "/cms-assets/internship-opportunity.svg",
-                eyebrow: lang === "vi" ? "Thuc tap va doanh nghiep" : "Internship and Industry",
-                title: lang === "vi" ? "Thong bao thuc tap duoc quan ly tap trung" : "Internship notices managed in one CMS",
-                body: lang === "vi" ? "CMS ho tro dang thong bao thuc tap, lich thi, webinar, tham quan doanh nghiep va cac cap nhat hoc vu cho sinh vien." : "The CMS supports internship notices, exam schedules, webinars, company visits, and academic updates for students.",
+                eyebrow: "Internship and Industry",
+                title: "Internship notices managed in one CMS",
+                body: "The CMS supports internship notices, exam schedules, webinars, company visits, and academic updates for students.",
               },
             ]}
             latestNewsHref={withLang("/news", lang)}

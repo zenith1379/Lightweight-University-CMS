@@ -36,20 +36,10 @@ function hasDropdown(path: string) {
 }
 
 function menuLabel(label: string, lang: Lang) {
-  if (lang !== "vi") return label;
-  const labels: Record<string, string> = {
-    Home: "Trang chủ",
-    News: "Tin tức",
-    Admissions: "Tuyển sinh",
-    Programs: "Đào tạo",
-    Faculty: "Nhân sự",
-    Contact: "Liên hệ",
-  };
-  return labels[label] ?? label;
+  return label;
 }
 
 export function SiteHeader({ menus, lang = "en", currentPath = "/" }: { menus: Menu[]; lang?: Lang; currentPath?: string }) {
-  const nextLang = lang === "vi" ? "en" : "vi";
   const desktopMenus = [
     ...menus,
     { id: "menu_student_handbook_static", label: "Student Handbook", path: "/news?category=student-life", order: 98 },
@@ -95,9 +85,6 @@ export function SiteHeader({ menus, lang = "en", currentPath = "/" }: { menus: M
               </div>
             );
           })}
-          <Link href={withLang(currentPath, nextLang)} className="rounded-md border border-[#c8d7ee] px-3 py-2 text-sm font-black text-[#2f3192] transition hover:bg-[#e8f7fc]">
-            {lang === "vi" ? "EN" : "VI"}
-          </Link>
           <Link href="/admin" className="rounded-md bg-[#2f3192] px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#249ac6]">
             {t(lang, "cms")}
           </Link>
@@ -128,9 +115,6 @@ export function SiteHeader({ menus, lang = "en", currentPath = "/" }: { menus: M
             </div>
           );
         })}
-        <Link href={withLang(currentPath, nextLang)} className="shrink-0 rounded-md border border-[#c8d7ee] px-3 py-2 text-sm font-black text-[#2f3192] hover:bg-white">
-          {lang === "vi" ? "EN" : "VI"}
-        </Link>
       </div>
     </header>
   );
@@ -176,7 +160,7 @@ export function PostCard({ post, lang = "en" }: { post: Post; lang?: Lang }) {
         </h3>
         <p className="mt-3 line-clamp-4 text-sm leading-6 text-slate-600">{post.excerpt}</p>
         <p className="mt-3 text-xs font-bold text-slate-500">
-          {post.author?.name ?? "SCSE Editorial Board"} · {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString(lang === "vi" ? "vi-VN" : "en-US") : "Draft"}
+            {post.author?.name ?? "SCSE Editorial Board"} · {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-US") : "Draft"}
         </p>
         <Link href={withLang(`/news/${post.slug}`, lang)} className="mt-4 inline-flex text-sm font-black text-[#2f3192] hover:text-[#249ac6]">
           {t(lang, "readMore")}

@@ -20,8 +20,8 @@ export default async function NewsPage({ searchParams }: Props) {
     <>
       <SiteHeader menus={menus} lang={lang} currentPath="/news" />
       <main>
-        <PageBand eyebrow={lang === "vi" ? "Tin tức" : "Newsroom"} title={lang === "vi" ? "Tin tức và thông báo" : "News and Announcements"}>
-          <p>{lang === "vi" ? "Theo dõi tin tức học thuật, thông báo sinh viên, tuyển sinh và chương trình đào tạo được quản lý từ CMS." : "Browse faculty news, academic notices, admissions updates, and program information maintained through the CMS dashboard."}</p>
+        <PageBand eyebrow={"Newsroom"} title={"News and Announcements"}>
+          <p>{"Browse faculty news, academic notices, admissions updates, and program information maintained through the CMS dashboard."}</p>
         </PageBand>
         <section className="bg-slate-50">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">

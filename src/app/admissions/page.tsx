@@ -17,8 +17,8 @@ export default async function AdmissionsPage({ searchParams }: Props) {
     <>
       <SiteHeader menus={menus} lang={lang} currentPath="/admissions" />
       <main>
-        <PageBand eyebrow={lang === "vi" ? "Tuyển sinh" : "Admissions"} title={lang === "vi" ? "Tuyển sinh" : "Admissions"}>
-          <p>{lang === "vi" ? "Thông báo tuyển sinh, điểm chuẩn, học bổng và hướng dẫn đăng ký chương trình đào tạo." : "Admission notices, score updates, scholarship information, and program application guidance."}</p>
+        <PageBand eyebrow={"Admissions"} title={"Admissions"}>
+          <p>{"Admission notices, score updates, scholarship information, and program application guidance."}</p>
         </PageBand>
         <section className="bg-slate-50">
           <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">

@@ -17,8 +17,8 @@ export default async function ProgramsPage({ searchParams }: Props) {
     <>
       <SiteHeader menus={menus} lang={lang} currentPath="/programs" />
       <main>
-        <PageBand eyebrow={lang === "vi" ? "Chương trình đào tạo" : "Academic Programs"} title={lang === "vi" ? "Chương trình đào tạo" : "Programs"}>
-          <p>{lang === "vi" ? "Thông tin chương trình đại học, sau đại học và liên kết quốc tế trong lĩnh vực khoa học máy tính, kỹ thuật, mạng và dữ liệu." : "Undergraduate, postgraduate, and twinning program information for computer science, engineering, networks, and data-oriented pathways."}</p>
+        <PageBand eyebrow={"Academic Programs"} title={"Programs"}>
+          <p>{"Undergraduate, postgraduate, and twinning program information for computer science, engineering, networks, and data-oriented pathways."}</p>
         </PageBand>
         <section className="bg-slate-50">
           <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">

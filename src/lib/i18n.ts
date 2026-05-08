@@ -1,11 +1,11 @@
-export type Lang = "en" | "vi";
-
+export type Lang = "en";
+   
 export function getLang(value?: string | null): Lang {
-  return value === "vi" ? "vi" : "en";
+  return "en";
 }
 
 export function withLang(path: string, lang: Lang) {
-  return lang === "vi" ? `${path}${path.includes("?") ? "&" : "?"}lang=vi` : path;
+  return path;
 }
 
 const copy = {
@@ -37,38 +37,9 @@ const copy = {
     viewAll: "View all",
     admissions: "Admissions",
     admissionsTitle: "Updates for prospective students",
-  },
-  vi: {
-    university: "Trường Đại học Quốc tế",
-    school: "Khoa Khoa học và Kỹ thuật Máy tính",
-    cms: "Quản trị",
-    footerIntro:
-      "Hệ quản trị nội dung gọn nhẹ cho tin tức, thông báo, tuyển sinh, chương trình đào tạo, nhân sự, menu, media và SEO.",
-    contact: "Liên hệ",
-    administration: "Quản trị nội dung",
-    userDashboard: "Bảng điều khiển CMS",
-    readMore: "Xem thêm",
-    heroEyebrow: "Nền tảng CMS đại học",
-    heroTitle: "Khoa Khoa học và Kỹ thuật Máy tính",
-    heroBody:
-      "Website khoa nhanh, dễ bảo trì, có CMS để quản lý tin tức, thông báo, tuyển sinh, chương trình đào tạo, SEO, media và phân quyền biên tập.",
-    latestNews: "Tin mới",
-    programs: "Chương trình",
-    welcome: "Giới thiệu",
-    newsroomTitle: "Thiết kế cho cổng thông tin của khoa",
-    newsroomBody:
-      "Giao diện gọn gàng hơn cho desktop và điện thoại: nổi bật tuyển sinh, chương trình học, thông báo và quy trình quản trị nội dung cho nhân viên.",
-    browseBySection: "Duyệt theo chuyên mục",
-    publicGroups: "Nhóm trang công khai",
-    rbac: "Vai trò Admin và User",
-    seo: "Metadata, sitemap, robots",
-    freshFromCms: "Nội dung mới từ CMS",
-    viewAll: "Xem tất cả",
-    admissions: "Tuyển sinh",
-    admissionsTitle: "Cập nhật cho thí sinh",
-  },
+  }
 };
 
 export function t(lang: Lang, key: keyof typeof copy.en) {
-  return copy[lang][key];
+  return copy.en[key];
 }

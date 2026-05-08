@@ -21,17 +21,14 @@ type Props = { searchParams: Promise<{ lang?: string }> };
 export default async function FacultyPage({ searchParams }: Props) {
   const lang = getLang((await searchParams).lang);
   const menus = await getMenus();
-  const isVi = lang === "vi";
 
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} lang={lang} currentPath="/faculty" />
       <main className="flex-1">
-        <PageBand eyebrow={isVi ? "Nhân sự" : "People"} title={isVi ? "Đội ngũ Khoa" : "Faculty Members"}>
+        <PageBand eyebrow={"People"} title={"Faculty Members"}>
           <p>
-            {isVi
-              ? "Trang nhân sự trình bày các nhóm chính của Khoa, từ ban chủ nhiệm, giảng viên, nghiên cứu sinh đến đội ngũ hỗ trợ học thuật."
-              : "Faculty profiles can be expanded into a dedicated module as the CMS grows. This page mirrors the academic user groups of the reference site with richer descriptions."}
+            {"Faculty profiles can be expanded into a dedicated module as the CMS grows. This page mirrors the academic user groups of the reference site with richer descriptions."}
           </p>
         </PageBand>
         <section className="bg-slate-50">
