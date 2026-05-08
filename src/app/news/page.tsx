@@ -17,9 +17,9 @@ export default async function NewsPage({ searchParams }: Props) {
   ]);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} lang={lang} currentPath="/news" />
-      <main>
+      <main className="flex-1">
         <PageBand eyebrow={"Newsroom"} title={"News and Announcements"}>
           <p>{"Browse faculty news, academic notices, admissions updates, and program information maintained through the CMS dashboard."}</p>
         </PageBand>
@@ -40,6 +40,8 @@ export default async function NewsPage({ searchParams }: Props) {
         </section>
       </main>
       <SiteFooter lang={lang} />
-    </>
+    </div>
   );
 }
+
+

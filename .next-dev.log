@@ -97,3 +97,14 @@
 ✓ Compiled in 39ms
  GET /explore?lang=vi 200 in 257ms (next.js: 74ms, application-code: 183ms)
  GET /explore?lang=vi 200 in 98ms (next.js: 7ms, application-code: 91ms)
+✓ Compiled in 121ms
+ GET /explore?lang=vi 200 in 896ms (next.js: 141ms, application-code: 754ms)
+ GET /explore?lang=vi 200 in 614ms (next.js: 7ms, application-code: 608ms)
+ GET /explore?lang=vi 200 in 615ms (next.js: 61ms, application-code: 554ms)
+ GET /explore?lang=vi 200 in 621ms (next.js: 12ms, application-code: 609ms)
+ GET /explore?lang=vi 200 in 621ms (next.js: 111ms, application-code: 510ms)
+ GET /explore?lang=vi 200 in 621ms (next.js: 157ms, application-code: 464ms)
+ GET /explore?lang=vi 200 in 264ms (next.js: 6ms, application-code: 257ms)
+ GET /explore?lang=vi 200 in 187ms (next.js: 4ms, application-code: 183ms)
+ GET /explore?lang=vi 200 in 97ms (next.js: 4ms, application-code: 93ms)
+✓ Compiled in 150ms

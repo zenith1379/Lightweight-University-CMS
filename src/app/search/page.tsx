@@ -7,9 +7,9 @@ export default async function SearchPage({ searchParams }: Props) {
   const { q } = await searchParams;
   const [menus, posts] = await Promise.all([getMenus(), getPostsPage({ page: 1, pageSize: 24, publicOnly: true, q })]);
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} />
-      <main>
+      <main className="flex-1">
         <PageBand eyebrow="Search" title="Search Results">
           <form action="/search" className="flex gap-2">
             <input name="q" defaultValue={q} className="h-11 min-w-0 flex-1 rounded-md border border-slate-200 px-3" placeholder="Search news..." />
@@ -23,6 +23,8 @@ export default async function SearchPage({ searchParams }: Props) {
         </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }
+
+

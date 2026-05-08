@@ -14,9 +14,9 @@ export default async function ProgramsPage({ searchParams }: Props) {
   ]);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} lang={lang} currentPath="/programs" />
-      <main>
+      <main className="flex-1">
         <PageBand eyebrow={"Academic Programs"} title={"Programs"}>
           <p>{"Undergraduate, postgraduate, and twinning program information for computer science, engineering, networks, and data-oriented pathways."}</p>
         </PageBand>
@@ -27,6 +27,8 @@ export default async function ProgramsPage({ searchParams }: Props) {
         </section>
       </main>
       <SiteFooter lang={lang} />
-    </>
+    </div>
   );
 }
+
+

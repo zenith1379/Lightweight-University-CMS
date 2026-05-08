@@ -18,9 +18,9 @@ export default async function Home({ searchParams }: Props) {
   ]);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} lang={lang} currentPath="/" />
-      <main>
+      <main className="flex-1">
         <section className="relative overflow-hidden bg-[#12175f] text-white">
           <HeroSlider
             slides={[
@@ -123,6 +123,8 @@ export default async function Home({ searchParams }: Props) {
         </section>
       </main>
       <SiteFooter lang={lang} />
-    </>
+    </div>
   );
 }
+
+

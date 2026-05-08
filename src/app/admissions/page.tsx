@@ -14,9 +14,9 @@ export default async function AdmissionsPage({ searchParams }: Props) {
   ]);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} lang={lang} currentPath="/admissions" />
-      <main>
+      <main className="flex-1">
         <PageBand eyebrow={"Admissions"} title={"Admissions"}>
           <p>{"Admission notices, score updates, scholarship information, and program application guidance."}</p>
         </PageBand>
@@ -27,6 +27,8 @@ export default async function AdmissionsPage({ searchParams }: Props) {
         </section>
       </main>
       <SiteFooter lang={lang} />
-    </>
+    </div>
   );
 }
+
+

@@ -31,9 +31,9 @@ export default async function NewsDetailPage({ params, searchParams }: Props) {
   if (!post) notFound();
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} lang={lang} currentPath={`/news/${slug}`} />
-      <main className="bg-white">
+      <main className="flex-1 bg-white">
         <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#2f3192]">{post.category?.name ?? "News"}</p>
           <h1 className="mt-3 text-4xl font-black tracking-normal text-slate-950">{post.title}</h1>
@@ -46,6 +46,8 @@ export default async function NewsDetailPage({ params, searchParams }: Props) {
         </article>
       </main>
       <SiteFooter lang={lang} />
-    </>
+    </div>
   );
 }
+
+

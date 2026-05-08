@@ -26,13 +26,6 @@ body {
   overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-body > main {
-  flex: 1;
 }
 
 button,
@@ -128,3 +121,4 @@ img {
   margin: 1rem 0;
   border-radius: 0.5rem;
 }
+

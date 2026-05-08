@@ -9,9 +9,9 @@ export const metadata = {
 export default async function AboutPage() {
   const menus = await getMenus();
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SiteHeader menus={menus} />
-      <main>
+      <main className="flex-1">
         <PageBand eyebrow="About" title="School of Computer Science and Engineering">
           <p>
             The School trains computing professionals through intensive programs, research activity, international collaboration, and industry-oriented learning.
@@ -33,6 +33,8 @@ export default async function AboutPage() {
         </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }
+
+
