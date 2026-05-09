@@ -209,6 +209,16 @@ function PostsView({ canPublish }: { canPublish: boolean }) {
     if (editor && open) editor.commands.setContent(draft.content);
   }, [draft.id, editor, open]);
 
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
+
   const filtered = useMemo(
     () => posts.filter((post) => `${post.title} ${post.excerpt}`.toLowerCase().includes(q.toLowerCase())),
     [posts, q],
@@ -309,10 +319,11 @@ function PostsView({ canPublish }: { canPublish: boolean }) {
         </div>
       </div>
       {open && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/55 p-4">
-          <div className="site-scrollbar max-h-[92vh] w-full max-w-6xl overflow-auto rounded-lg bg-white shadow-2xl">
-            <div className="border-b border-slate-200 p-5">
+        <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/55 p-4" onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
+          <div className="site-scrollbar max-h-[92vh] w-full max-w-6xl overflow-auto rounded-lg bg-white shadow-2xl relative">
+            <div className="flex items-center justify-between border-b border-slate-200 p-5">
               <h2 className="text-xl font-black text-slate-950">{draft.id ? "Edit Post" : "Create Post"}</h2>
+              <Button type="button" variant="ghost" className="h-8 px-2 md:h-9 hover:bg-slate-100 uppercase" onClick={() => setOpen(false)}>Close (Esc)</Button>
             </div>
             <div className="grid gap-5 p-5 xl:grid-cols-[minmax(0,1fr)_340px]">
               <div className="space-y-4">
@@ -448,6 +459,16 @@ function MediaView() {
   const [editAlt, setEditAlt] = useState("");
   const [editFile, setEditFile] = useState<File | null>(null);
 
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape" && editing) {
+        setEditing(null);
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [editing]);
+
   async function upload() {
     if (!file) return;
     const form = new FormData();
@@ -495,9 +516,12 @@ function MediaView() {
         ))}
       </div>
       {editing && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/55 p-4">
-          <div className="w-full max-w-lg rounded-lg bg-white p-5 shadow-2xl">
-            <h2 className="text-lg font-black text-slate-950">Edit Media</h2>
+        <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/55 p-4" onClick={(e) => { if (e.target === e.currentTarget) setEditing(null); }}>
+          <div className="w-full max-w-lg rounded-lg bg-white p-5 shadow-2xl relative">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-black text-slate-950">Edit Media</h2>
+              <Button type="button" variant="ghost" className="h-8 px-2 md:h-9 hover:bg-slate-100 uppercase" onClick={() => setEditing(null)}>Close (Esc)</Button>
+            </div>
             <div className="mt-4 overflow-hidden rounded-md border border-slate-200">
               <img src={editing.url} alt={editing.alt ?? ""} className="h-48 w-full object-cover" />
             </div>
