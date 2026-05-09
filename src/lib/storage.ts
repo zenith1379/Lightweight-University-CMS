@@ -21,6 +21,7 @@ export async function storeMediaFile(file: File): Promise<StoredObject> {
   const blob = await put(key, file, {
     access: "public",
     addRandomSuffix: false,
+    token: process.env.BLOB_READ_WRITE_TOKEN,
   });
 
   return { key, url: blob.url };
