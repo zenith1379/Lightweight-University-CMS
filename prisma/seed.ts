@@ -1,8 +1,11 @@
+import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient, PostStatus, Role } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { Pool } from "pg";
 
-const adapter = new PrismaPg(process.env.DATABASE_URL ?? "");
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 function slugify(value: string) {
