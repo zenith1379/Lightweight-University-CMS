@@ -271,6 +271,9 @@ function PostsView({ canPublish }: { canPublish: boolean }) {
       const result = await api<{ data: Media }>("/api/media", { method: "POST", body: form });
       setMedia([result.data, ...media]);
       setDraft((current) => ({ ...current, thumbnail: result.data.url }));
+      window.alert("Upload successful!");
+    } catch (e) {
+      window.alert("Upload failed. Error: " + (e as Error).message);
     } finally {
       setUploadingThumb(false);
     }
@@ -473,9 +476,14 @@ function MediaView() {
     if (!file) return;
     const form = new FormData();
     form.append("file", file);
-    const result = await api<{ data: Media }>("/api/media", { method: "POST", body: form });
-    setMedia([result.data, ...media]);
-    setFile(null);
+    try {
+      const result = await api<{ data: Media }>("/api/media", { method: "POST", body: form });
+      setMedia([result.data, ...media]);
+      setFile(null);
+      window.alert("Upload successful!");
+    } catch (e) {
+      window.alert("Upload failed. Error: " + (e as Error).message);
+    }
   }
 
   function startEdit(asset: Media) {
@@ -489,17 +497,26 @@ function MediaView() {
     const form = new FormData();
     form.append("alt", editAlt);
     if (editFile) form.append("file", editFile);
-    const result = await api<{ data: Media }>(`/api/media/${editing.id}`, { method: "PUT", body: form });
-    setMedia(media.map((asset) => (asset.id === editing.id ? result.data : asset)));
-    setEditing(null);
-    setEditFile(null);
+    try {
+      const result = await api<{ data: Media }>(`/api/media/${editing.id}`, { method: "PUT", body: form });
+      setMedia(media.map((asset) => (asset.id === editing.id ? result.data : asset)));
+      setEditing(null);
+      setEditFile(null);
+      window.alert("Saved successfully!");
+    } catch (e) {
+      window.alert("Save failed. Error: " + (e as Error).message);
+    }
   }
 
   return (
     <div className="space-y-5">
       <section className="rounded-lg border border-slate-200 bg-white p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Input type="file" accept="image/*" onChange={(event) => setFile(event.target.files?.[0] ?? null)} />
+          <div className="flex h-10 flex-1 items-center rounded-md border border-slate-200 px-3 text-sm text-slate-500">
+            <span className="truncate">{file ? file.name : "No files have been selected yet."}</span>
+            <input type="file" className="sr-only" id="media-upload" accept="image/*" onChange={(event) => setFile(event.target.files?.[0] ?? null)} />
+            <label htmlFor="media-upload" className="ml-auto cursor-pointer font-bold text-slate-950 hover:underline">Browse</label>
+          </div>
           <Button type="button" onClick={() => void upload()}><Upload size={17} /> Upload</Button>
         </div>
       </section>
@@ -532,7 +549,11 @@ function MediaView() {
               </label>
               <label className="grid gap-1 text-sm font-bold text-slate-700">
                 Replace image
-                <Input type="file" accept="image/*" onChange={(event) => setEditFile(event.target.files?.[0] ?? null)} />
+                <div className="flex h-10 w-full items-center rounded-md border border-slate-200 px-3 text-sm font-normal text-slate-500">
+                  <span className="truncate">{editFile ? editFile.name : "No files have been selected yet."}</span>
+                  <input type="file" className="sr-only" id="media-replace" accept="image/*" onChange={(event) => setEditFile(event.target.files?.[0] ?? null)} />
+                  <label htmlFor="media-replace" className="ml-auto cursor-pointer font-bold text-slate-950 hover:underline">Browse</label>
+                </div>
               </label>
             </div>
             <div className="mt-5 flex justify-end gap-2">
