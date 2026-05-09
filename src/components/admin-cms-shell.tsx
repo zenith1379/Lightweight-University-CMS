@@ -25,6 +25,7 @@ import {
   Trash2,
   Upload,
   Users,
+  Download,
 } from "lucide-react";
 import type { Category, DashboardSnapshot, Media, Post, PostStatus, Role, User } from "@/lib/domain";
 import { useCmsStore } from "@/store/cms-store";
@@ -556,17 +557,17 @@ function MediaView() {
                 <Input value={editAlt} onChange={(event) => setEditAlt(event.target.value)} />
               </label>
               <label className="grid gap-1 text-sm font-bold text-slate-700">
-                Replace image
-                <div className="flex h-10 w-full items-center rounded-md border border-slate-200 px-3 text-sm font-normal text-slate-500">
-                  <span className="truncate">{editFile ? editFile.name : "No files have been selected yet."}</span>
-                  <input type="file" className="sr-only" id="media-replace" accept="image/*" onChange={(event) => setEditFile(event.target.files?.[0] ?? null)} />
-                  <label htmlFor="media-replace" className="ml-auto cursor-pointer font-bold text-slate-950 hover:underline">Browse</label>
+                Image URL
+                <div className="flex gap-2">
+                  <Input readOnly value={editing.url} />
+                  <Button type="button" className="bg-slate-100 text-slate-900 border border-slate-200 hover:bg-slate-200" onClick={() => window.open(editing.url, '_blank')}>View</Button>
                 </div>
               </label>
             </div>
             <div className="mt-5 flex justify-end gap-2">
               <Button type="button" className="bg-slate-200 text-slate-950 hover:bg-slate-300" onClick={() => setEditing(null)}>Cancel</Button>
-              <Button type="button" onClick={() => void saveEdit()}><Save size={17} /> Save</Button>
+              <Button type="button" onClick={() => void saveEdit()}><Save size={17} /> Save Alt</Button>
+              <Button type="button" onClick={() => window.open(editing.url, '_blank')} className="bg-[#2f3192]"><Download size={17} /> Download</Button>
             </div>
           </div>
         </div>
