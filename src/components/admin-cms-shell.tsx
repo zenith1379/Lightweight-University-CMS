@@ -135,7 +135,7 @@ function LoginPanel() {
           <div className="space-y-4">
             <label className="grid gap-1 text-sm font-bold text-slate-700">
               Email
-              <Input value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email đăng nhập (vd: admin@scse.local)" />
+              <Input value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email (e.g., admin@scse.local)" />
             </label>
             <label className="grid gap-1 text-sm font-bold text-slate-700">
               Password
