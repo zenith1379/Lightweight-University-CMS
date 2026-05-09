@@ -323,7 +323,7 @@ function PostsView({ canPublish }: { canPublish: boolean }) {
           <div className="site-scrollbar max-h-[92vh] w-full max-w-6xl overflow-auto rounded-lg bg-white shadow-2xl relative">
             <div className="flex items-center justify-between border-b border-slate-200 p-5">
               <h2 className="text-xl font-black text-slate-950">{draft.id ? "Edit Post" : "Create Post"}</h2>
-              <Button type="button" variant="ghost" className="h-8 px-2 md:h-9 hover:bg-slate-100 uppercase" onClick={() => setOpen(false)}>Close (Esc)</Button>
+              <Button type="button" className="h-8 px-2 md:h-9 bg-transparent text-slate-500 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 uppercase" onClick={() => setOpen(false)}>Close (Esc)</Button>
             </div>
             <div className="grid gap-5 p-5 xl:grid-cols-[minmax(0,1fr)_340px]">
               <div className="space-y-4">
@@ -520,7 +520,7 @@ function MediaView() {
           <div className="w-full max-w-lg rounded-lg bg-white p-5 shadow-2xl relative">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-black text-slate-950">Edit Media</h2>
-              <Button type="button" variant="ghost" className="h-8 px-2 md:h-9 hover:bg-slate-100 uppercase" onClick={() => setEditing(null)}>Close (Esc)</Button>
+              <Button type="button" className="h-8 px-2 md:h-9 bg-transparent text-slate-500 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 uppercase" onClick={() => setEditing(null)}>Close (Esc)</Button>
             </div>
             <div className="mt-4 overflow-hidden rounded-md border border-slate-200">
               <img src={editing.url} alt={editing.alt ?? ""} className="h-48 w-full object-cover" />
