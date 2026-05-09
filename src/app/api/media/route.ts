@@ -30,12 +30,17 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Only images are allowed" }, { status: 400 });
   }
 
-  const stored = await storeMediaFile(file);
-  const media = await createMedia({
-    ...stored,
-    alt: typeof alt === "string" ? alt : file.name,
-    uploadedBy: auth.session.userId,
-  });
+  try {
+    const stored = await storeMediaFile(file);
+    const media = await createMedia({
+      ...stored,
+      alt: typeof alt === "string" ? alt : file.name,
+      uploadedBy: auth.session.userId,
+    });
 
-  return Response.json({ data: media }, { status: 201 });
+    return Response.json({ data: media }, { status: 201 });
+  } catch (error: any) {
+    console.error("Media upload error:", error);
+    return Response.json({ error: error.message || "Failed to upload file to storage" }, { status: 500 });
+  }
 }

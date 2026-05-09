@@ -71,7 +71,15 @@ async function api<T>(url: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: init?.body instanceof FormData ? init.headers : { "Content-Type": "application/json", ...init?.headers },
   });
-  if (!response.ok) throw new Error(await response.text());
+  if (!response.ok) {
+    const text = await response.text();
+    try {
+      const json = JSON.parse(text);
+      throw new Error(json.error || text);
+    } catch {
+      throw new Error(text);
+    }
+  }
   return response.json() as Promise<T>;
 }
 
