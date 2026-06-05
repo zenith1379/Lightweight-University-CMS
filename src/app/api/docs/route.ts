@@ -22,8 +22,8 @@ export function GET() {
       "GET /api/dashboard",
     ],
     demoAccounts: {
-      admin: "admin@scse.local / Admin@12345",
-      user: "user@scse.local / User@12345",
+      admin: "admin@scse.local / set with SEED_ADMIN_PASSWORD",
+      user: "user@scse.local / set with SEED_USER_PASSWORD",
     },
   });
 }

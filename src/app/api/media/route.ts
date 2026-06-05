@@ -39,8 +39,8 @@ export async function POST(request: NextRequest) {
     });
 
     return Response.json({ data: media }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Media upload error:", error);
-    return Response.json({ error: error.message || "Failed to upload file to storage" }, { status: 500 });
+    return Response.json({ error: error instanceof Error ? error.message : "Failed to upload file to storage" }, { status: 500 });
   }
 }

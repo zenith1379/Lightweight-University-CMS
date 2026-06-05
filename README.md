@@ -2,8 +2,6 @@
 
 Production-ready lightweight CMS/blog platform for a university faculty website, designed as a WordPress replacement for pages similar to SCSE HCMIU.
 
-Vietnamese teacher-facing summary: see [README-THAY.md](./README-THAY.md).
-
 ## Features
 
 - Public SSR website: home, news, news detail, announcements, admissions, programs, faculty, about, contact, search
@@ -32,9 +30,24 @@ Vietnamese teacher-facing summary: see [README-THAY.md](./README-THAY.md).
 
 ```bash
 cp .env.example .env
+# Edit .env and set POSTGRES_PASSWORD, DATABASE_URL, AUTH_SECRET, JWT_SECRET.
 docker-compose up -d postgres
 npm install
 npm run db:migrate
+SEED_ADMIN_PASSWORD="<set-a-local-admin-password>" SEED_USER_PASSWORD="<set-a-local-user-password>" npm run db:seed
+npm run dev
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+# Edit .env and set POSTGRES_PASSWORD, DATABASE_URL, AUTH_SECRET, JWT_SECRET.
+docker-compose up -d postgres
+npm install
+npm run db:migrate
+$env:SEED_ADMIN_PASSWORD="<set-a-local-admin-password>"
+$env:SEED_USER_PASSWORD="<set-a-local-user-password>"
 npm run db:seed
 npm run dev
 ```
@@ -44,10 +57,12 @@ Open:
 - Public website: `http://localhost:3000`
 - Admin dashboard: `http://localhost:3000/admin`
 
-Seed accounts:
+Default seed emails:
 
-- Admin: `admin@scse.local` / `Admin@12345`
-- User: `user@scse.local` / `User@12345`
+- Admin email: `admin@scse.local`
+- User email: `user@scse.local`
+
+The seed passwords are intentionally not hard-coded. Set `SEED_ADMIN_PASSWORD` and `SEED_USER_PASSWORD` before running `npm run db:seed`.
 
 The app also has an in-memory sample-data fallback when `DATABASE_URL` is not set, useful for UI preview builds.
 
@@ -87,7 +102,7 @@ Relationships:
 ```bash
 curl -i -c cookies.txt -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d "{\"email\":\"admin@scse.local\",\"password\":\"Admin@12345\"}"
+  -d "{\"email\":\"admin@scse.local\",\"password\":\"<your-seed-admin-password>\"}"
 
 curl -b cookies.txt http://localhost:3000/api/auth/me
 curl http://localhost:3000/api/docs
@@ -144,3 +159,26 @@ docker-compose up -d --build
 npm run lint
 npm run build
 ```
+
+## Vietnamese Handoff Notes
+
+Du an xay dung he quan tri noi dung cho website Khoa Khoa hoc va Ky thuat May tinh. Noi dung demo duoc bien tap theo file RSS cua website tham chieu, gom tin tuyen sinh, thong bao hoc vu, video, thuc tap, chuong trinh va thong tin lien he/vi tri.
+
+Chuc nang public:
+
+- Trang chu co logo HCMIU, hero slider tu dong, nut mui ten trai/phai va nut tron chuyen slide.
+- Header co dropdown kieu website goc cho Programs va Explore.
+- Tin tuc, thong bao, tuyen sinh, chuong trinh, nhan su, lien he, tim kiem.
+- Bai viet co thumbnail, noi dung HTML, video YouTube iframe, link, dia diem va thong tin lien he.
+- Trang lien he co thong tin van phong va ban do Google Maps.
+- Giao dien responsive cho desktop va dien thoai.
+
+Chuc nang CMS Admin:
+
+- Dang nhap Admin/User.
+- Dashboard thong ke bai viet, draft, user, media, category.
+- Quan ly bai viet: tao, sua, xoa, draft/publish, thumbnail, SEO title, SEO description.
+- Quan ly category.
+- Quan ly media: upload, edit alt text, thay hinh moi cho media da co.
+- Quan ly user cho Admin.
+- Muc Menus da duoc an/xoa khoi CMS Admin theo yeu cau.

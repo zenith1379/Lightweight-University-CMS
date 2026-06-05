@@ -205,13 +205,22 @@ async function main() {
   await prisma.category.deleteMany();
   await prisma.user.deleteMany();
 
-  const passwordHash = await bcrypt.hash("Admin@12345", 12);
-  const userPasswordHash = await bcrypt.hash("User@12345", 12);
+  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@scse.local";
+  const userEmail = process.env.SEED_USER_EMAIL ?? "user@scse.local";
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD;
+  const userPassword = process.env.SEED_USER_PASSWORD;
+
+  if (!adminPassword || !userPassword) {
+    throw new Error("Set SEED_ADMIN_PASSWORD and SEED_USER_PASSWORD before running prisma db seed.");
+  }
+
+  const passwordHash = await bcrypt.hash(adminPassword, 12);
+  const userPasswordHash = await bcrypt.hash(userPassword, 12);
 
   const admin = await prisma.user.create({
     data: {
       name: "SCSE Administrator",
-      email: "admin@scse.local",
+      email: adminEmail,
       passwordHash,
       role: Role.ADMIN,
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80",
@@ -221,7 +230,7 @@ async function main() {
   await prisma.user.create({
     data: {
       name: "Faculty User Editor",
-      email: "user@scse.local",
+      email: userEmail,
       passwordHash: userPasswordHash,
       role: Role.USER,
       avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=240&q=80",

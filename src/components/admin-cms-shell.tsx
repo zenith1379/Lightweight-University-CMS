@@ -96,22 +96,15 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 function LoginPanel() {
   const setSession = useCmsStore((state) => state.setSession);
   const [email, setEmail] = useState("admin@scse.local");
-  const [password, setPassword] = useState("Admin@12345");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  async function login(role?: Role) {
+  async function login() {
     setError("");
-    const payload =
-      role === "USER"
-        ? { email: "user@scse.local", password: "User@12345" }
-        : role === "ADMIN"
-          ? { email: "admin@scse.local", password: "Admin@12345" }
-          : { email, password };
-
     try {
       const result = await api<{ data: { userId: string; name: string; email: string; role: Role } }>("/api/auth/login", {
         method: "POST",
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ email, password }),
       });
       setSession(result.data);
     } catch {
@@ -131,14 +124,6 @@ function LoginPanel() {
           <p className="mt-4 max-w-md text-sm leading-6 text-slate-300">
             Manage posts, drafts, categories, media, users, SEO metadata, and publishing workflow with ADMIN/USER permissions.
           </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            <Button type="button" onClick={() => void login("ADMIN")}>
-              <LogIn size={17} /> Demo Admin
-            </Button>
-            <Button type="button" onClick={() => void login("USER")} className="border border-white/20 bg-white/10 hover:bg-white/15">
-              <LogIn size={17} /> Demo User
-            </Button>
-          </div>
         </section>
         <section className="p-6 sm:p-8">
           <div className="space-y-4">
@@ -578,7 +563,7 @@ function MediaView() {
 
 function UsersView() {
   const { users, setUsers } = useCmsStore();
-  const [draft, setDraft] = useState({ name: "", email: "", password: "User@12345", confirmPassword: "User@12345", role: "USER" as Role });
+  const [draft, setDraft] = useState({ name: "", email: "", password: "", confirmPassword: "", role: "USER" as Role });
   const [error, setError] = useState("");
   async function add() {
     setError("");
@@ -588,7 +573,7 @@ function UsersView() {
     }
     const result = await api<{ data: User }>("/api/users", { method: "POST", body: JSON.stringify(draft) });
     setUsers([result.data, ...users]);
-    setDraft({ name: "", email: "", password: "User@12345", confirmPassword: "User@12345", role: "USER" });
+    setDraft({ name: "", email: "", password: "", confirmPassword: "", role: "USER" });
   }
   return (
     <div className="grid gap-5 lg:grid-cols-[360px_1fr]">

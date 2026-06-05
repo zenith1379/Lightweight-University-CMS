@@ -4,7 +4,7 @@ services:
     environment:
       POSTGRES_DB: university_cms
       POSTGRES_USER: cms
-      POSTGRES_PASSWORD: cms_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
     ports:
       - "5432:5432"
     volumes:
@@ -31,11 +31,11 @@ services:
       redis:
         condition: service_started
     environment:
-      DATABASE_URL: postgresql://cms:cms_password@postgres:5432/university_cms?schema=public
-      AUTH_SECRET: replace-with-a-long-random-production-secret
-      JWT_SECRET: replace-with-a-long-random-production-secret
-      REDIS_URL: redis://redis:6379
-      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      DATABASE_URL: postgresql://cms:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/university_cms?schema=public
+      AUTH_SECRET: ${AUTH_SECRET:?Set AUTH_SECRET in .env}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
     ports:
       - "3000:3000"
 

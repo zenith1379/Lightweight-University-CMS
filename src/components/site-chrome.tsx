@@ -35,11 +35,13 @@ function hasDropdown(path: string) {
   return Boolean(dropdowns[path]?.length);
 }
 
-function menuLabel(label: string, lang: Lang) {
+function menuLabel(label: string, _lang: Lang) {
+  void _lang;
   return label;
 }
 
-export function SiteHeader({ menus, lang = "en", currentPath = "/" }: { menus: Menu[]; lang?: Lang; currentPath?: string }) {
+export function SiteHeader({ menus, lang = "en", currentPath: _currentPath = "/" }: { menus: Menu[]; lang?: Lang; currentPath?: string }) {
+  void _currentPath;
   const desktopMenus = [
     ...menus,
     { id: "menu_student_handbook_static", label: "Student Handbook", path: "/news?category=student-life", order: 98 },

@@ -7,7 +7,11 @@ const encoder = new TextEncoder();
 export const sessionCookieName = "cms_session";
 
 function getJwtSecret() {
-  return encoder.encode(process.env.AUTH_SECRET ?? process.env.JWT_SECRET ?? "dev-only-change-me-in-production");
+  const secret = process.env.AUTH_SECRET ?? process.env.JWT_SECRET;
+  if (!secret && process.env.NODE_ENV === "production") {
+    throw new Error("AUTH_SECRET or JWT_SECRET must be set in production.");
+  }
+  return encoder.encode(secret ?? "dev-only-local-secret");
 }
 
 export type SessionClaims = {

@@ -1,10 +1,12 @@
 export type Lang = "en";
    
-export function getLang(value?: string | null): Lang {
+export function getLang(_value?: string | null): Lang {
+  void _value;
   return "en";
 }
 
-export function withLang(path: string, lang: Lang) {
+export function withLang(path: string, _lang: Lang) {
+  void _lang;
   return path;
 }
 
@@ -40,6 +42,6 @@ const copy = {
   }
 };
 
-export function t(lang: Lang, key: keyof typeof copy.en) {
+export function t(_lang: Lang, key: keyof typeof copy.en) {
   return copy.en[key];
 }
